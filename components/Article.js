@@ -114,3 +114,91 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+    // Step 5.
+
+        // Declare a new article object.
+        let newArticle = 
+        {
+          title: 'New Lambda Graduate, "Grahamattic" to Join Automattic as a WordPress Developer',
+          date: 'Nov 2nd, 2020',
+          firstParagraph: `This new developer is on the money when it comes to organic web design. She has the stylistic creativity and technical knowledge to do the job of both a designer and programmer in one.`,
+          secondParagraph: `Who is she? Her name is Shenica Graham. Her GitHub handle is Grahamattic. She has authored over 50 websites and is now adding solid credentials to her native talent.`,
+          thirdParagraph: `Shenica will graduate Lambda school in 2022.`
+        };
+
+        // Add the newArticle object to the data array.
+        data.push(newArticle);
+
+// Step 1.
+
+// Assign article details to an object.
+    let articleMaker = (
+        title,
+        date,
+        firstParagraph,
+        secondParagraph,
+        thirdParagraph
+    ) => {
+
+    // Create new HTML elements to hold the article details.
+    let article = document.createElement('div');
+    let articleTitle = document.createElement('h2');
+    let articleDate = document.createElement('p');
+    let articleP1 = document.createElement('p');
+    let articleP2 = document.createElement('p');
+    let articleP3 = document.createElement('p');
+    let expandBtn = document.createElement('span');
+
+    // Add a class to the article div.
+    article.classList.add('article');
+    //Distinguish the date paragraph from the body paragraph.
+    articleDate.classList.add('date');
+    // Add a class to the button.
+    expandBtn.classList.add('expandButton');
+
+    // Append HTML elements to the article div.
+    article.appendChild(articleTitle);
+    article.appendChild(articleDate);
+    article.appendChild(articleP1);
+    article.appendChild(articleP2);
+    article.appendChild(articleP3);
+    article.appendChild(expandBtn);
+
+    // Insert text content in appended HTML elements.
+    articleTitle.textContent = title;
+    articleDate.textContent = date;
+    articleP1.textContent = firstParagraph;
+    articleP2.textContent = secondParagraph;
+    articleP3.textContent = thirdParagraph;
+    expandBtn.textContent = 'read more';
+
+// Step 2.
+
+  // Add an event listener to the expandButton span that toggles the article display (article-open) class.
+    expandBtn.addEventListener('click', () => {
+        article.classList.toggle('article-open');
+    });
+    // Step 3. Return the article with its details.
+    return article;
+};
+
+// Step 4.
+
+    // Grab the Articles div.
+    let news = document.querySelector('.articles');
+
+    // Map over the data and create a component for each object.
+    data.forEach(paragraph => {
+        // Add each component to the DOM as children of the 'articles' div.
+        news.appendChild(
+            articleMaker(
+                paragraph.title,
+                paragraph.date,
+                paragraph.firstParagraph,
+                paragraph.secondParagraph,
+                paragraph.thirdParagraph
+            )
+        );
+    }
+); 
