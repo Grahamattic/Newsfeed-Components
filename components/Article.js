@@ -133,7 +133,7 @@ const data = [
 // Step 1.
 
 // Assign article details to an object.
-    let articleMaker = (
+let articleMaker = (
         title,
         date,
         firstParagraph,
@@ -188,11 +188,12 @@ const data = [
 
 // Step 4.
 
-    // Grab the Articles div.
-    let news = document.querySelector('.articles');
+// Grab the Articles div.
+let news = document.querySelector('.articles');
 
     // Map over the data and create a component for each object.
     data.forEach(paragraph => {
+      
         // Add each component to the DOM as children of the 'articles' div.
         news.appendChild(
             articleMaker(
