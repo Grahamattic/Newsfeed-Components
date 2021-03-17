@@ -121,9 +121,9 @@ const data = [
         let newArticle = 
         {
           title: 'New Lambda Graduate, "Grahamattic" to Join Automattic as a WordPress Developer',
-          date: 'Nov 2nd, 2020',
+          date: 'March 16th, 2021',
           firstParagraph: `This new developer is on the money when it comes to organic web design. She has the stylistic creativity and technical knowledge to do the job of both a designer and programmer in one.`,
-          secondParagraph: `Who is she? Her name is Shenica Graham. Her GitHub handle is Grahamattic. She has authored over 50 websites and is now adding solid credentials to her native talent.`,
+          secondParagraph: `Who is she? Her name is Shenica Graham. Her GitHub handle is "Grahamattic." She has authored over 50 websites and is now adding solid credentials to her native talent.`,
           thirdParagraph: `Shenica will graduate Lambda school in 2022.`
         };
 
@@ -148,6 +148,8 @@ const data = [
     let articleP1 = document.createElement('p');
     let articleP2 = document.createElement('p');
     let articleP3 = document.createElement('p');
+
+    // Create a new HTML button
     let expandBtn = document.createElement('span');
 
     // Add a class to the article div.
@@ -179,6 +181,7 @@ const data = [
     expandBtn.addEventListener('click', () => {
         article.classList.toggle('article-open');
     });
+
     // Step 3. Return the article with its details.
     return article;
 };
